@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Web dictaphone</title>
+    <link href="styles/app.css" rel="stylesheet" type="text/css">
+    <link href="styles/install-button.css" rel="stylesheet" type="text/css">
+    <style>
+input[type=text] {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+}
+</style>
+  </head>
+  <body>
+
+    <div class="wrapper">
+
+      <header>
+        <h1>Özyegin University</h1>
+      </header>
+
+      <section class="main-controls">
+        <input name="recordInfoTxt" type="text" maxlength="512" id="recordInfoTxt" placeholder="Record info" onchange="myFunction()" />
+        <canvas class="visualizer"></canvas>
+        <div id="buttons">
+          <button class="record">Record</button>
+          <button class="stop">Stop</button>
+        </div>
+      </section>
+
+      <section class="sound-clips">
+
+        <!-- This is left here as a helper for testing the style of the clips
+        If you want to edit their appearance without having to record clips,
+        uncomment this and reload the page. Remember to comment it again when done!
+        <article class="clip">
+          <audio controls></audio>
+          <p>Sample clip name</p>
+          <button class="delete">Delete</button>
+        </article>
+        -->
+
+      </section>
+
+    </div>
+
+    <label for="toggle">❔</label>
+    <input type="checkbox" id="toggle">
+    <aside>
+      <h2>Information</h2>
+
+      <p>Web dictaphone is built using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator.getUserMedia">getUserMedia</a> and the <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder_API">MediaRecorder API</a>, which provides an easier way to capture Media streams.</p>
+
+      <p>MediaRecorder API currently only works in Firefox 25 (desktop/mobile) and Firefox OS 2.0. gUM and Web Audio have wider support.</p>
+
+      <p>Icon courtesy of <a href="http://findicons.com/search/microphone">Find Icons</a>. Thanks to <a href="http://soledadpenades.com/">Sole</a> for the Oscilloscope code!</p>
+
+      <button id="install-btn">Install app</button>
+    </aside>
+
+    <script src="scripts/install.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/FileSaver.js"></script>
+
+
+    <!-- Below is your custom application script -->
+    <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
+    <script>
+  // Initialize Firebase
+    var config = {
+      apiKey: "*************",
+      authDomain: "*************",
+      databaseURL: "*************",
+      projectId:"*************",
+      storageBucket: "*************",
+      messagingSenderId: "*************"
+    };
+    firebase.initializeApp(config);
+  </script>
+    <script src="scripts/app.js"></script>
+
+  </body>
+</html>
